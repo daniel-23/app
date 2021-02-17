@@ -9,32 +9,32 @@
         </template>
 
         <template #form>
-            <div class="col-span-6 sm:col-span-4">
+            <div class="form-group">
                 <jet-label for="current_password" value="Current Password" />
-                <jet-input id="current_password" type="password" class="mt-1 block w-full" v-model="form.current_password" ref="current_password" autocomplete="current-password" />
-                <jet-input-error :message="form.errors.current_password" class="mt-2" />
+                <jet-input id="current_password" type="password"  :class="{'is-invalid': form.errors.current_password}" v-model="form.current_password" ref="current_password" autocomplete="current-password" />
+                <jet-input-error :message="form.errors.current_password" />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="form-group">
                 <jet-label for="password" value="New Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" ref="password" autocomplete="new-password" />
-                <jet-input-error :message="form.errors.password" class="mt-2" />
+                <jet-input id="password" type="password"  :class="{'is-invalid': form.errors.password}" v-model="form.password" ref="password" autocomplete="new-password" />
+                <jet-input-error :message="form.errors.password" />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="form-group">
                 <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" autocomplete="new-password" />
-                <jet-input-error :message="form.errors.password_confirmation" class="mt-2" />
+                <jet-input id="password_confirmation" type="password"  :class="{'is-invalid': form.errors.password_confirmation}" v-model="form.password_confirmation" autocomplete="new-password" />
+                <jet-input-error :message="form.errors.password_confirmation" />
             </div>
         </template>
 
         <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+            <jet-action-message :on="form.recentlySuccessful" class="alert alert-success" v-show="form.recentlySuccessful">
+                {{ __('Saved.') }}
             </jet-action-message>
 
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+            <jet-button :class="{ 'opacity-25': form.processing }" class="float-right" :disabled="form.processing">
+                {{ __('Save') }}
             </jet-button>
         </template>
     </jet-form-section>

@@ -1,9 +1,5 @@
 <template>
-    <div v-show="message">
-        <p class="text-sm text-red-600">
-            {{ message }}
-        </p>
-    </div>
+	<span class="error invalid-feedback" v-show="message">{{ __(message) }}</span>
 </template>
 
 <script>

@@ -31,6 +31,12 @@
                         <i class="nav-icon fa fa-users"></i>
                         <p>{{ __('Users') }}</p>
                     </jet-nav-link>
+                    <li class="nav-item mb-4">
+                        <a :href="route('logout')" class="nav-link" @click.prevent="logout">
+                            <i class="nav-icon fas fa-power-off text-danger"></i>
+                            <p>{{ __('Logout') }}</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -43,6 +49,11 @@
     export default {
         components: {
         	JetNavLink
+        },
+        methods: {
+            logout() {
+                this.$inertia.post(route('logout'));
+            },
         }
     }
 </script>
