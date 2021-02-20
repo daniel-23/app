@@ -17,18 +17,18 @@
         <jet-validation-errors class="mb-4" />
 
         <form @submit.prevent="submit">
-            <div v-if="! recovery">
+            <div class="form-group" v-if="! recovery">
                 <jet-label for="code" value="Code" />
                 <jet-input ref="code" id="code" type="text" inputmode="numeric" class="mt-1 block w-full" v-model="form.code" autofocus autocomplete="one-time-code" />
             </div>
 
-            <div v-else>
+            <div class="form-group" v-else>
                 <jet-label for="recovery_code" value="Recovery Code" />
                 <jet-input ref="recovery_code" id="recovery_code" type="text" class="mt-1 block w-full" v-model="form.recovery_code" autocomplete="one-time-code" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" @click.prevent="toggleRecovery">
+                <button type="button" class="btn btn-default" @click.prevent="toggleRecovery">
                     <template v-if="! recovery">
                         Use a recovery code
                     </template>
@@ -38,8 +38,8 @@
                     </template>
                 </button>
 
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Login
+                <jet-button class="float-right" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    {{ __('Login') }}
                 </jet-button>
             </div>
         </form>

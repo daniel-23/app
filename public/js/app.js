@@ -1910,12 +1910,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     JetSectionTitle: _SectionTitle__WEBPACK_IMPORTED_MODULE_0__.default
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    $("body").removeClass();
+    $("body").addClass('hold-transition');
+    $("body").addClass('login-page');
   }
 });
 
@@ -1960,7 +1992,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -2150,10 +2181,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get(route('password.confirmation')).then(function (response) {
+        console.log("response", response.data);
+
         if (response.data.confirmed) {
           _this.$emit('confirmed');
         } else {
           _this.confirmingPassword = true;
+          $('#modal-password-confirm').modal();
           setTimeout(function () {
             return _this.$refs.password.focus();
           }, 250);
@@ -2167,6 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(route('password.confirm'), {
         password: this.form.password
       }).then(function () {
+        $('#modal-password-confirm').hide('slow');
         _this2.form.processing = false;
 
         _this2.closeModal();
@@ -2182,6 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     closeModal: function closeModal() {
+      $('#modal-password-confirm').hide('slow');
       this.confirmingPassword = false;
       this.form.password = '';
       this.form.error = '';
@@ -2231,8 +2267,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal */ "./resources/js/Jetstream/Modal.vue");
-//
-//
 //
 //
 //
@@ -2403,24 +2437,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2762,6 +2778,12 @@ __webpack_require__.r(__webpack_exports__);
       $("body").removeClass('sidebar-open');
       $("body").addClass('sidebar-closed');
       $("body").addClass('sidebar-collapse');
+    }
+
+    if ($("body").hasClass('login-page')) {
+      $("body").removeClass('login-page');
+      $("body").addClass('sidebar-mini');
+      $("body").addClass('layout-fixed');
     }
   }
 });
@@ -3394,6 +3416,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3461,6 +3503,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Checkbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Checkbox */ "./resources/js/Jetstream/Checkbox.vue");
 /* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
 /* harmony import */ var _Jetstream_ValidationErrors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/ValidationErrors */ "./resources/js/Jetstream/ValidationErrors.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4405,6 +4474,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4446,6 +4521,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ConfirmsPassword__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/ConfirmsPassword */ "./resources/js/Jetstream/ConfirmsPassword.vue");
 /* harmony import */ var _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/DangerButton */ "./resources/js/Jetstream/DangerButton.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
+//
 //
 //
 //
@@ -25103,15 +25179,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _AuthenticationCard_vue_vue_type_template_id_0ffdd8dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthenticationCard.vue?vue&type=template&id=0ffdd8dc& */ "./resources/js/Jetstream/AuthenticationCard.vue?vue&type=template&id=0ffdd8dc&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AuthenticationCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthenticationCard.vue?vue&type=script&lang=js& */ "./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AuthenticationCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _AuthenticationCard_vue_vue_type_template_id_0ffdd8dc___WEBPACK_IMPORTED_MODULE_0__.render,
   _AuthenticationCard_vue_vue_type_template_id_0ffdd8dc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -26909,6 +26987,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthenticationCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AuthenticationCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Jetstream/AuthenticationCard.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthenticationCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/Jetstream/Button.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/Jetstream/Button.vue?vue&type=script&lang=js& ***!
@@ -28487,7 +28581,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "md:grid md:grid-cols-3 md:gap-6" },
+    { staticClass: "card" },
     [
       _c("jet-section-title", {
         scopedSlots: _vm._u(
@@ -28512,14 +28606,7 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
-        _c(
-          "div",
-          { staticClass: "px-4 py-5 sm:p-6 bg-white shadow sm:rounded-lg" },
-          [_vm._t("content")],
-          2
-        )
-      ])
+      _c("div", { staticClass: "card-body" }, [_vm._t("content")], 2)
     ],
     1
   )
@@ -28606,26 +28693,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"
-    },
-    [
-      _c("div", [_vm._t("logo")], 2),
-      _vm._v(" "),
+  return _c("div", { staticClass: "login-box" }, [
+    _c("div", { staticClass: "login-logo" }, [_vm._t("logo")], 2),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
       _c(
         "div",
-        {
-          staticClass:
-            "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
-        },
+        { staticClass: "card-body login-card-body" },
         [_vm._t("default")],
         2
       )
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -28651,34 +28730,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("inertia-link", { attrs: { href: "/" } }, [
-    _c(
-      "svg",
-      {
-        staticClass: "w-16 h-16",
-        attrs: {
-          viewBox: "0 0 48 48",
-          fill: "none",
-          xmlns: "http://www.w3.org/2000/svg"
-        }
-      },
-      [
-        _c("path", {
-          attrs: {
-            d:
-              "M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z",
-            fill: "#6875F5"
-          }
-        }),
-        _vm._v(" "),
-        _c("path", {
-          attrs: {
-            d:
-              "M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z",
-            fill: "#6875F5"
-          }
-        })
-      ]
-    )
+    _c("b", [_vm._v("Admin")]),
+    _vm._v("LTE")
   ])
 }
 var staticRenderFns = []
@@ -28743,8 +28796,6 @@ var render = function() {
         expression: "proxyChecked"
       }
     ],
-    staticClass:
-      "rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
     attrs: { type: "checkbox" },
     domProps: {
       value: _vm.value,
@@ -28903,7 +28954,9 @@ var render = function() {
             key: "title",
             fn: function() {
               return [
-                _vm._v("\n            " + _vm._s(_vm.title) + "\n        ")
+                _vm._v(
+                  "\n            " + _vm._s(_vm.__(_vm.title)) + "\n        "
+                )
               ]
             },
             proxy: true
@@ -28913,16 +28966,21 @@ var render = function() {
             fn: function() {
               return [
                 _vm._v(
-                  "\n            " + _vm._s(_vm.content) + "\n\n            "
+                  "\n            " +
+                    _vm._s(_vm.__(_vm.content)) +
+                    "\n\n            "
                 ),
                 _c(
                   "div",
-                  { staticClass: "mt-4" },
+                  { staticClass: "form-group" },
                   [
                     _c("jet-input", {
                       ref: "password",
-                      staticClass: "mt-1 block w-3/4",
-                      attrs: { type: "password", placeholder: "Password" },
+                      class: { "is-invalid": _vm.form.error },
+                      attrs: {
+                        type: "password",
+                        placeholder: _vm.__("Password")
+                      },
                       nativeOn: {
                         keyup: function($event) {
                           if (
@@ -28967,13 +29025,20 @@ var render = function() {
                 _c(
                   "jet-secondary-button",
                   {
+                    attrs: { "data-dismiss": "modal" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeModal($event)
                       }
                     }
                   },
-                  [_vm._v("\n                Nevermind\n            ")]
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.__("Nevermind")) +
+                        "\n            "
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -28991,7 +29056,7 @@ var render = function() {
                   [
                     _vm._v(
                       "\n                " +
-                        _vm._s(_vm.button) +
+                        _vm._s(_vm.__(_vm.button)) +
                         "\n            "
                     )
                   ]
@@ -29031,11 +29096,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    {
-      staticClass:
-        "inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150",
-      attrs: { type: _vm.type }
-    },
+    { staticClass: "btn btn-danger", attrs: { type: _vm.type } },
     [_vm._t("default")],
     2
   )
@@ -29066,23 +29127,33 @@ var render = function() {
   return _c(
     "modal",
     {
-      attrs: {
-        show: _vm.show,
-        "max-width": _vm.maxWidth,
-        closeable: _vm.closeable
-      },
+      attrs: { "max-width": _vm.maxWidth, closeable: _vm.closeable },
       on: { close: _vm.close }
     },
     [
-      _c("div", { staticClass: "px-6 py-4" }, [
-        _c("div", { staticClass: "text-lg" }, [_vm._t("title")], 2),
+      _c("div", { staticClass: "modal-header" }, [
+        _c("h4", { staticClass: "modal-title" }, [_vm._t("title")], 2),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-4" }, [_vm._t("content")], 2)
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            },
+            on: { click: _vm.close }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-body" }, [_vm._t("content")], 2),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "px-6 py-4 bg-gray-100 text-right" },
+        { staticClass: "modal-footer justify-content-between" },
         [_vm._t("footer")],
         2
       )
@@ -29287,101 +29358,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "portal",
-    { attrs: { to: "modal" } },
+    "div",
+    { staticClass: "modal fade", attrs: { id: "modal-password-confirm" } },
     [
-      _c("transition", { attrs: { "leave-active-class": "duration-200" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.show,
-                expression: "show"
-              }
-            ],
-            staticClass: "fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
-          },
-          [
-            _c(
-              "transition",
-              {
-                attrs: {
-                  "enter-active-class": "ease-out duration-300",
-                  "enter-class": "opacity-0",
-                  "enter-to-class": "opacity-100",
-                  "leave-active-class": "ease-in duration-200",
-                  "leave-class": "opacity-100",
-                  "leave-to-class": "opacity-0"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.show,
-                        expression: "show"
-                      }
-                    ],
-                    staticClass: "fixed inset-0 transform transition-all",
-                    on: { click: _vm.close }
-                  },
-                  [
-                    _c("div", {
-                      staticClass: "absolute inset-0 bg-gray-500 opacity-75"
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "transition",
-              {
-                attrs: {
-                  "enter-active-class": "ease-out duration-300",
-                  "enter-class":
-                    "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-                  "enter-to-class": "opacity-100 translate-y-0 sm:scale-100",
-                  "leave-active-class": "ease-in duration-200",
-                  "leave-class": "opacity-100 translate-y-0 sm:scale-100",
-                  "leave-to-class":
-                    "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.show,
-                        expression: "show"
-                      }
-                    ],
-                    staticClass:
-                      "mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto",
-                    class: _vm.maxWidthClass
-                  },
-                  [_vm._t("default")],
-                  2
-                )
-              ]
-            )
-          ],
-          1
-        )
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [_vm._t("default")], 2)
       ])
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = []
@@ -29511,9 +29494,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card-header" }, [
-    _c("h3", { staticClass: "card-title" }, [_vm._t("title")], 2),
-    _vm._v(" "),
-    _c("p", { staticClass: "card-text" }, [_vm._t("description")], 2)
+    _c(
+      "h3",
+      { staticClass: "card-title" },
+      [
+        _vm._t("title"),
+        _vm._v(" "),
+        _c("small", { staticClass: "text-muted" }, [_vm._t("description")], 2)
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -29540,14 +29530,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.hasErrors
-    ? _c("div", [
-        _c("div", { staticClass: "font-medium text-red-600" }, [
-          _vm._v("Whoops! Something went wrong.")
-        ]),
+    ? _c("div", { staticClass: "alert alert-danger" }, [
+        _c("p", [_vm._v(_vm._s(_vm.__("Whoops! Something went wrong.")))]),
         _vm._v(" "),
         _c(
           "ul",
-          { staticClass: "mt-3 list-disc list-inside text-sm text-red-600" },
           _vm._l(_vm.errors, function(error, key) {
             return _c("li", { key: key }, [_vm._v(_vm._s(error))])
           }),
@@ -31008,18 +30995,16 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("div", { staticClass: "mb-4 text-sm text-gray-600" }, [
+      _c("div", { staticClass: "mb-4 text-sm" }, [
         _vm._v(
           "\n        Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.\n    "
         )
       ]),
       _vm._v(" "),
       _vm.status
-        ? _c(
-            "div",
-            { staticClass: "mb-4 font-medium text-sm text-green-600" },
-            [_vm._v("\n        " + _vm._s(_vm.status) + "\n    ")]
-          )
+        ? _c("div", { staticClass: "mb-4 alert alert-success" }, [
+            _vm._v("\n        " + _vm._s(_vm.__(_vm.status)) + "\n    ")
+          ])
         : _vm._e(),
       _vm._v(" "),
       _c("jet-validation-errors", { staticClass: "mb-4" }),
@@ -31037,11 +31022,11 @@ var render = function() {
         [
           _c(
             "div",
+            { staticClass: "form-group" },
             [
               _c("jet-label", { attrs: { for: "email", value: "Email" } }),
               _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "email",
                   type: "email",
@@ -31061,25 +31046,22 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "flex items-center justify-end mt-4" },
+            "jet-button",
+            {
+              staticClass: "btn-block",
+              class: { "opacity-25": _vm.form.processing },
+              attrs: { disabled: _vm.form.processing }
+            },
             [
-              _c(
-                "jet-button",
-                {
-                  class: { "opacity-25": _vm.form.processing },
-                  attrs: { disabled: _vm.form.processing }
-                },
-                [
-                  _vm._v(
-                    "\n                Email Password Reset Link\n            "
-                  )
-                ]
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.__("Email Password Reset Link")) +
+                  "\n            "
               )
-            ],
-            1
+            ]
           )
-        ]
+        ],
+        1
       )
     ],
     1
@@ -31126,12 +31108,14 @@ var render = function() {
       _c("jet-validation-errors", { staticClass: "mb-4" }),
       _vm._v(" "),
       _vm.status
-        ? _c(
-            "div",
-            { staticClass: "mb-4 font-medium text-sm text-green-600" },
-            [_vm._v("\n        " + _vm._s(_vm.status) + "\n    ")]
-          )
+        ? _c("div", { staticClass: "alert alert-success" }, [
+            _vm._v("\n        " + _vm._s(_vm.status) + "\n    ")
+          ])
         : _vm._e(),
+      _vm._v(" "),
+      _c("p", { staticClass: "login-box-msg" }, [
+        _vm._v("Sign in to start your session")
+      ]),
       _vm._v(" "),
       _c(
         "form",
@@ -31146,14 +31130,13 @@ var render = function() {
         [
           _c(
             "div",
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", { attrs: { for: "email", value: "Email" } }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "email",
                   type: "email",
+                  placeholder: _vm.__("E-Mail Address"),
                   required: "",
                   autofocus: ""
                 },
@@ -31164,24 +31147,26 @@ var render = function() {
                   },
                   expression: "form.email"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-envelope" })
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", {
-                attrs: { for: "password", value: "Password" }
-              }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "password",
                   type: "password",
+                  placeholder: _vm.__("Password"),
                   required: "",
                   autocomplete: "current-password"
                 },
@@ -31192,67 +31177,82 @@ var render = function() {
                   },
                   expression: "form.password"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-lock" })
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "block mt-4" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-8" }, [
+              _c(
+                "div",
+                { staticClass: "icheck-primary" },
+                [
+                  _c("jet-checkbox", {
+                    attrs: { name: "remember", id: "remember" },
+                    model: {
+                      value: _vm.form.remember,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "remember", $$v)
+                      },
+                      expression: "form.remember"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "remember" } }, [
+                    _vm._v(
+                      "\n                        Remember Me\n                    "
+                    )
+                  ])
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
             _c(
-              "label",
-              { staticClass: "flex items-center" },
+              "div",
+              { staticClass: "col-4" },
               [
-                _c("jet-checkbox", {
-                  attrs: { name: "remember" },
-                  model: {
-                    value: _vm.form.remember,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "remember", $$v)
-                    },
-                    expression: "form.remember"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-sm text-gray-600" }, [
-                  _vm._v("Remember me")
-                ])
+                _c(
+                  "jet-button",
+                  {
+                    staticClass: "btn-block",
+                    class: { "opacity-25": _vm.form.processing },
+                    attrs: { disabled: _vm.form.processing }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.__("Login")) +
+                        "\n                "
+                    )
+                  ]
+                )
               ],
               1
             )
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex items-center justify-end mt-4" },
-            [
-              _vm.canResetPassword
-                ? _c(
+          _vm.canResetPassword
+            ? _c(
+                "p",
+                { staticClass: "mb-1 mt-3" },
+                [
+                  _c(
                     "inertia-link",
-                    {
-                      staticClass:
-                        "underline text-sm text-gray-600 hover:text-gray-900",
-                      attrs: { href: _vm.route("password.request") }
-                    },
-                    [
-                      _vm._v(
-                        "\n                Forgot your password?\n            "
-                      )
-                    ]
+                    { attrs: { href: _vm.route("password.request") } },
+                    [_vm._v(_vm._s(_vm.__("Forgot your password?")))]
                   )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "jet-button",
-                {
-                  staticClass: "ml-4",
-                  class: { "opacity-25": _vm.form.processing },
-                  attrs: { disabled: _vm.form.processing }
-                },
-                [_vm._v("\n                Login\n            ")]
+                ],
+                1
               )
-            ],
-            1
-          )
+            : _vm._e()
         ]
       )
     ],
@@ -31312,14 +31312,13 @@ var render = function() {
         [
           _c(
             "div",
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", { attrs: { for: "name", value: "Name" } }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "name",
                   type: "text",
+                  placeholder: _vm.__("Name"),
                   required: "",
                   autofocus: "",
                   autocomplete: "name"
@@ -31331,20 +31330,28 @@ var render = function() {
                   },
                   expression: "form.name"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-user" })
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", { attrs: { for: "email", value: "Email" } }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
-                attrs: { id: "email", type: "email", required: "" },
+                attrs: {
+                  id: "email",
+                  type: "email",
+                  placeholder: _vm.__("E-Mail Address"),
+                  required: ""
+                },
                 model: {
                   value: _vm.form.email,
                   callback: function($$v) {
@@ -31352,24 +31359,26 @@ var render = function() {
                   },
                   expression: "form.email"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-envelope" })
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", {
-                attrs: { for: "password", value: "Password" }
-              }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "password",
                   type: "password",
+                  placeholder: _vm.__("Password"),
                   required: "",
                   autocomplete: "new-password"
                 },
@@ -31380,27 +31389,26 @@ var render = function() {
                   },
                   expression: "form.password"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-lock" })
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "input-group mb-3" },
             [
-              _c("jet-label", {
-                attrs: {
-                  for: "password_confirmation",
-                  value: "Confirm Password"
-                }
-              }),
-              _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "password_confirmation",
                   type: "password",
+                  placeholder: _vm.__("Confirm Password"),
                   required: "",
                   autocomplete: "new-password"
                 },
@@ -31411,10 +31419,60 @@ var render = function() {
                   },
                   expression: "form.password_confirmation"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("div", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "fas fa-lock" })
+                ])
+              ])
             ],
             1
           ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-8" }, [
+              _vm.$page.props.jetstream.hasTermsAndPrivacyPolicyFeature
+                ? _c("div", { staticClass: "icheck-primary" }, [
+                    _c("input", {
+                      attrs: {
+                        type: "checkbox",
+                        id: "agreeTerms",
+                        name: "terms",
+                        value: "agree"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "agreeTerms" } }, [
+                      _vm._v("\n                        I agree to the "),
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("terms")])
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-4" },
+              [
+                _c(
+                  "jet-button",
+                  {
+                    class: { "opacity-25": _vm.form.processing },
+                    attrs: { disabled: _vm.form.processing }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.__("Register")) +
+                        "\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
           _vm.$page.props.jetstream.hasTermsAndPrivacyPolicyFeature
             ? _c(
@@ -31474,33 +31532,11 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex items-center justify-end mt-4" },
-            [
-              _c(
-                "inertia-link",
-                {
-                  staticClass:
-                    "underline text-sm text-gray-600 hover:text-gray-900",
-                  attrs: { href: _vm.route("login") }
-                },
-                [_vm._v("\n                Already registered?\n            ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "jet-button",
-                {
-                  staticClass: "ml-4",
-                  class: { "opacity-25": _vm.form.processing },
-                  attrs: { disabled: _vm.form.processing }
-                },
-                [_vm._v("\n                Register\n            ")]
-              )
-            ],
-            1
-          )
-        ]
+          _c("inertia-link", { attrs: { href: _vm.route("login") } }, [
+            _vm._v(_vm._s(_vm.__("Already registered?")))
+          ])
+        ],
+        1
       )
     ],
     1
@@ -31559,16 +31595,16 @@ var render = function() {
         [
           _c(
             "div",
+            { staticClass: "form-group" },
             [
               _c("jet-label", { attrs: { for: "email", value: "Email" } }),
               _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "email",
                   type: "email",
                   required: "",
-                  autofocus: ""
+                  readonly: ""
                 },
                 model: {
                   value: _vm.form.email,
@@ -31584,18 +31620,18 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "form-group" },
             [
               _c("jet-label", {
                 attrs: { for: "password", value: "Password" }
               }),
               _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "password",
                   type: "password",
                   required: "",
+                  autofocus: "",
                   autocomplete: "new-password"
                 },
                 model: {
@@ -31612,7 +31648,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "mt-4" },
+            { staticClass: "form-group" },
             [
               _c("jet-label", {
                 attrs: {
@@ -31622,7 +31658,6 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("jet-input", {
-                staticClass: "mt-1 block w-full",
                 attrs: {
                   id: "password_confirmation",
                   type: "password",
@@ -31735,6 +31770,7 @@ var render = function() {
           !_vm.recovery
             ? _c(
                 "div",
+                { staticClass: "form-group" },
                 [
                   _c("jet-label", { attrs: { for: "code", value: "Code" } }),
                   _vm._v(" "),
@@ -31761,6 +31797,7 @@ var render = function() {
               )
             : _c(
                 "div",
+                { staticClass: "form-group" },
                 [
                   _c("jet-label", {
                     attrs: { for: "recovery_code", value: "Recovery Code" }
@@ -31793,8 +31830,7 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass:
-                    "text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer",
+                  staticClass: "btn btn-default",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
@@ -31822,11 +31858,17 @@ var render = function() {
               _c(
                 "jet-button",
                 {
-                  staticClass: "ml-4",
+                  staticClass: "float-right",
                   class: { "opacity-25": _vm.form.processing },
                   attrs: { disabled: _vm.form.processing }
                 },
-                [_vm._v("\n                Login\n            ")]
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.__("Login")) +
+                      "\n            "
+                  )
+                ]
               )
             ],
             1
@@ -31875,22 +31917,24 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("div", { staticClass: "mb-4 text-sm text-gray-600" }, [
+      _c("div", { staticClass: "mb-4 text-sm" }, [
         _vm._v(
           "\n        Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.\n    "
         )
       ]),
       _vm._v(" "),
       _vm.verificationLinkSent
-        ? _c(
-            "div",
-            { staticClass: "mb-4 font-medium text-sm text-green-600" },
-            [
-              _vm._v(
-                "\n        A new verification link has been sent to the email address you provided during registration.\n    "
-              )
-            ]
-          )
+        ? _c("div", { staticClass: "mb-4 alert alert-success" }, [
+            _vm._v(
+              "\n        " +
+                _vm._s(
+                  _vm.__(
+                    "A new verification link has been sent to the email address you provided during registration."
+                  )
+                ) +
+                "\n    "
+            )
+          ])
         : _vm._e(),
       _vm._v(" "),
       _c(
@@ -31911,12 +31955,15 @@ var render = function() {
               _c(
                 "jet-button",
                 {
+                  staticClass: "btn-block",
                   class: { "opacity-25": _vm.form.processing },
                   attrs: { disabled: _vm.form.processing }
                 },
                 [
                   _vm._v(
-                    "\n                Resend Verification Email\n            "
+                    "\n                " +
+                      _vm._s(_vm.__("Resend Verification Email")) +
+                      "\n            "
                   )
                 ]
               ),
@@ -32814,6 +32861,17 @@ var render = function() {
                   1
                 )
               : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _vm.$page.props.jetstream.canManageTwoFactorAuthentication
+              ? _c(
+                  "div",
+                  { staticClass: "col-md-6" },
+                  [_c("two-factor-authentication-form")],
+                  1
+                )
+              : _vm._e()
           ])
         ])
       ])
@@ -32848,7 +32906,13 @@ var render = function() {
       {
         key: "title",
         fn: function() {
-          return [_vm._v("\n        Two Factor Authentication\n    ")]
+          return [
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.__("Two Factor Authentication")) +
+                "\n    "
+            )
+          ]
         },
         proxy: true
       },
@@ -32857,7 +32921,13 @@ var render = function() {
         fn: function() {
           return [
             _vm._v(
-              "\n        Add additional security to your account using two factor authentication.\n    "
+              "\n        " +
+                _vm._s(
+                  _vm.__(
+                    "Add additional security to your account using two factor authentication."
+                  )
+                ) +
+                "\n    "
             )
           ]
         },
@@ -32868,21 +32938,37 @@ var render = function() {
         fn: function() {
           return [
             _vm.twoFactorEnabled
-              ? _c("h3", { staticClass: "text-lg font-medium text-gray-900" }, [
+              ? _c("h3", [
                   _vm._v(
-                    "\n            You have enabled two factor authentication.\n        "
+                    "\n            " +
+                      _vm._s(
+                        _vm.__("You have enabled two factor authentication.")
+                      ) +
+                      "\n        "
                   )
                 ])
-              : _c("h3", { staticClass: "text-lg font-medium text-gray-900" }, [
+              : _c("h3", [
                   _vm._v(
-                    "\n            You have not enabled two factor authentication.\n        "
+                    "\n            " +
+                      _vm._s(
+                        _vm.__(
+                          "You have not enabled two factor authentication."
+                        )
+                      ) +
+                      "\n        "
                   )
                 ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mt-3 max-w-xl text-sm text-gray-600" }, [
+            _c("div", { staticClass: "mt-3" }, [
               _c("p", [
                 _vm._v(
-                  "\n                When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.\n            "
+                  "\n                " +
+                    _vm._s(
+                      _vm.__(
+                        "When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application."
+                      )
+                    ) +
+                    "\n            "
                 )
               ])
             ]),
@@ -32891,19 +32977,19 @@ var render = function() {
               ? _c("div", [
                   _vm.qrCode
                     ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "mt-4 max-w-xl text-sm text-gray-600"
-                          },
-                          [
-                            _c("p", { staticClass: "font-semibold" }, [
-                              _vm._v(
-                                "\n                        Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application.\n                    "
-                              )
-                            ])
-                          ]
-                        ),
+                        _c("div", { staticClass: "mt-4" }, [
+                          _c("p", { staticClass: "font-semibold" }, [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(
+                                  _vm.__(
+                                    "Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application."
+                                  )
+                                ) +
+                                "\n                    "
+                            )
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c("div", {
                           staticClass: "mt-4 dark:p-4 dark:w-56 dark:bg-white",
@@ -32922,7 +33008,13 @@ var render = function() {
                           [
                             _c("p", { staticClass: "font-semibold" }, [
                               _vm._v(
-                                "\n                        Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.\n                    "
+                                "\n                        " +
+                                  _vm._s(
+                                    _vm.__(
+                                      "Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost."
+                                    )
+                                  ) +
+                                  "\n                    "
                               )
                             ])
                           ]
@@ -32969,7 +33061,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                        Enable\n                    "
+                                "\n                        " +
+                                  _vm._s(_vm.__("Enable")) +
+                                  "\n                    "
                               )
                             ]
                           )
@@ -32992,7 +33086,11 @@ var render = function() {
                                 { staticClass: "mr-3" },
                                 [
                                   _vm._v(
-                                    "\n                        Regenerate Recovery Codes\n                    "
+                                    "\n                        " +
+                                      _vm._s(
+                                        _vm.__("Regenerate Recovery Codes")
+                                      ) +
+                                      "\n                    "
                                   )
                                 ]
                               )
@@ -33011,7 +33109,9 @@ var render = function() {
                                 { staticClass: "mr-3" },
                                 [
                                   _vm._v(
-                                    "\n                        Show Recovery Codes\n                    "
+                                    "\n                        " +
+                                      _vm._s(_vm.__("Show Recovery Codes")) +
+                                      "\n                    "
                                   )
                                 ]
                               )
@@ -33029,12 +33129,15 @@ var render = function() {
                           _c(
                             "jet-danger-button",
                             {
+                              staticClass: "float-right",
                               class: { "opacity-25": _vm.disabling },
                               attrs: { disabled: _vm.disabling }
                             },
                             [
                               _vm._v(
-                                "\n                        Disable\n                    "
+                                "\n                        " +
+                                  _vm._s(_vm.__("Disable")) +
+                                  "\n                    "
                               )
                             ]
                           )
@@ -33563,7 +33666,7 @@ var render = function() {
                             expression: "! photoPreview"
                           }
                         ],
-                        staticClass: "mt-2 text-center"
+                        staticClass: "text-center"
                       },
                       [
                         _c("img", {
@@ -33617,7 +33720,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                    Select A New Photo\n                "
+                              "\n                    " +
+                                _vm._s(_vm.__("Select A New Photo")) +
+                                "\n                "
                             )
                           ]
                         ),
@@ -33637,7 +33742,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Remove Photo\n                "
+                                  "\n                    " +
+                                    _vm._s(_vm.__("Remove Photo")) +
+                                    "\n                "
                                 )
                               ]
                             )

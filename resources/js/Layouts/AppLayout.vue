@@ -35,10 +35,8 @@
 </template>
 
 <script>
-    
     import NavBar from '@/Layouts/NavBar'
     import SideBar from '@/Layouts/SideBar'
-    
 
     export default {
         components: {
@@ -51,11 +49,11 @@
 		    	$("body").addClass('sidebar-closed');
 		    	$("body").addClass('sidebar-collapse');
 		    }
-        }
+		    if ($("body").hasClass('login-page')) {
+		    	$("body").removeClass('login-page');
+		    	$("body").addClass('sidebar-mini');
+		    	$("body").addClass('layout-fixed');
+		    }
+		}
     }
-
-    
-
-    
-
 </script>

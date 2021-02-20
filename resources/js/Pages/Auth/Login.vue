@@ -6,37 +6,57 @@
 
         <jet-validation-errors class="mb-4" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="alert alert-success">
             {{ status }}
         </div>
-
+        <p class="login-box-msg">Sign in to start your session</p>
         <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+
+            <div class="input-group mb-3">
+
+                <jet-input id="email" type="email" v-model="form.email" :placeholder="__('E-Mail Address')" required autofocus />
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+            <div class="input-group mb-3">
+                <jet-input id="password" type="password" :placeholder="__('Password')" v-model="form.password" required autocomplete="current-password" />
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <jet-checkbox name="remember" v-model="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
+            <div class="row">
+                <div class="col-8">
+                    <div class="icheck-primary">
+                        <jet-checkbox name="remember" id="remember" v-model="form.remember" />
+                        <label for="remember">
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-4">
+                    <jet-button :class="{ 'opacity-25': form.processing }" class="btn-block" :disabled="form.processing">
+                        {{ __('Login') }}
+                    </jet-button>
+                    
+                </div>
+                <!-- /.col -->
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </inertia-link>
+            <p class="mb-1 mt-3" v-if="canResetPassword">
+                <inertia-link  :href="route('password.request')">{{ __('Forgot your password?') }}</inertia-link>
+            </p>
 
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Login
-                </jet-button>
-            </div>
+            
+
+            
         </form>
     </jet-authentication-card>
 </template>

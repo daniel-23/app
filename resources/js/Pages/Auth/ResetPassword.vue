@@ -7,19 +7,19 @@
         <jet-validation-errors class="mb-4" />
 
         <form @submit.prevent="submit">
-            <div>
+            <div class="form-group">
                 <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" v-model="form.email" required readonly />
             </div>
 
-            <div class="mt-4">
+            <div class="form-group">
                 <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
+                <jet-input id="password" type="password" v-model="form.password" required autofocus autocomplete="new-password" />
             </div>
 
-            <div class="mt-4">
+            <div class="form-group">
                 <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+                <jet-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
             </div>
 
             <div class="flex items-center justify-end mt-4">

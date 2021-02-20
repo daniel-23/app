@@ -1,21 +1,19 @@
 <template>
-    <modal :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
-        <div class="px-6 py-4">
-            <div class="text-lg">
-                <slot name="title">
-                </slot>
-            </div>
-
-            <div class="mt-4">
-                <slot name="content">
-                </slot>
-            </div>
+    <modal :max-width="maxWidth" :closeable="closeable" @close="close">
+        <div class="modal-header">
+            <h4 class="modal-title"><slot name="title"></slot></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-
-        <div class="px-6 py-4 bg-gray-100 text-right">
+        <div class="modal-body">
+            <slot name="content"></slot>
+        </div>
+        <div class="modal-footer justify-content-between">
             <slot name="footer">
             </slot>
         </div>
+
     </modal>
 </template>
 

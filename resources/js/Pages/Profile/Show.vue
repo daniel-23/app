@@ -26,6 +26,12 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6" v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
+                        <two-factor-authentication-form />
+                    </div>
+                </div>
+
                 
 
                 

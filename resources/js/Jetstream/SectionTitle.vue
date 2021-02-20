@@ -3,11 +3,10 @@
         
             <h3 class="card-title">
                 <slot name="title"></slot>
+                <small class="text-muted"> <slot name="description"></slot></small>
             </h3>
 
-            <p class="card-text">
-                <slot name="description"></slot>
-            </p>
+            
         </div>
     </div>
 </template>

@@ -6,14 +6,14 @@
 
         <jet-dialog-modal :show="confirmingPassword" @close="closeModal">
             <template #title>
-                {{ __(title) }}
+                {{ title }}
             </template>
 
             <template #content>
-                {{ __(content) }}
+                {{ content }}
 
-                <div class="form-group">
-                    <jet-input type="password" :class="{'is-invalid': form.error}" :placeholder="__('Password')"
+                <div class="mt-4">
+                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                 ref="password"
                                 v-model="form.password"
                                 @keyup.enter.native="confirmPassword" />
@@ -23,12 +23,12 @@
             </template>
 
             <template #footer>
-                <jet-secondary-button @click.native="closeModal" data-dismiss="modal">
-                    {{ __('Nevermind') }}
+                <jet-secondary-button @click.native="closeModal">
+                    Nevermind
                 </jet-secondary-button>
 
                 <jet-button class="ml-2" @click.native="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    {{ __(button) }}
+                    {{ button }}
                 </jet-button>
             </template>
         </jet-dialog-modal>
@@ -76,12 +76,10 @@
         methods: {
             startConfirmingPassword() {
                 axios.get(route('password.confirmation')).then(response => {
-                    console.log("response", response.data);
                     if (response.data.confirmed) {
                         this.$emit('confirmed');
                     } else {
                         this.confirmingPassword = true;
-                        $('#modal-password-confirm').modal();
 
                         setTimeout(() => this.$refs.password.focus(), 250)
                     }
@@ -94,7 +92,6 @@
                 axios.post(route('password.confirm'), {
                     password: this.form.password,
                 }).then(() => {
-                    $('#modal-password-confirm').hide('slow');
                     this.form.processing = false;
                     this.closeModal()
                     this.$nextTick(() => this.$emit('confirmed'));
@@ -106,7 +103,6 @@
             },
 
             closeModal() {
-                $('#modal-password-confirm').hide('slow');
                 this.confirmingPassword = false
                 this.form.password = '';
                 this.form.error = '';

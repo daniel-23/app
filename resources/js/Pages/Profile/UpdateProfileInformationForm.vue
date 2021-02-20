@@ -19,7 +19,7 @@
                 <jet-label for="photo" value="Photo" />
 
                 <!-- Current Profile Photo -->
-                <div class="mt-2 text-center" v-show="! photoPreview">
+                <div class="text-center" v-show="! photoPreview">
                     <img :src="user.profile_photo_url" :alt="user.name" class="img-circle img-fluid" style="max-width: 150px;">
                 </div>
 
@@ -29,11 +29,11 @@
                 </div>
                 <div class="text-center">
                     <jet-secondary-button class="mt-2 mr-2" type="button" @click.native.prevent="selectNewPhoto">
-                        Select A New Photo
+                        {{ __('Select A New Photo') }}
                     </jet-secondary-button>
 
                     <jet-secondary-button type="button" class="mt-2" @click.native.prevent="deletePhoto" v-if="user.profile_photo_path">
-                        Remove Photo
+                        {{ __('Remove Photo') }}
                     </jet-secondary-button>
                 </div>
 
