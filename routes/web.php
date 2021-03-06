@@ -4,7 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\{
-	UserController
+	PostController,
+    UserController
 };
 
 /*
@@ -27,13 +28,20 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->resource('users', UserController::class);
-
 
 Route::get('/language/{language}', function ($language) {
 	session()->put('locale', $language);
 	return redirect()->back();
 })->name('language');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::resource('users', UserController::class);
+
+    Route::resource('posts', PostController::class);
+
+    
+});

@@ -1,7 +1,7 @@
 <template>
     <jet-form-section @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            {{ __('Profile Information') }}
         </template>
 
         <template #description>

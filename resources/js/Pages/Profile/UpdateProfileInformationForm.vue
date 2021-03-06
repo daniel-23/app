@@ -1,11 +1,11 @@
 <template>
     <jet-form-section @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            {{ __('Profile Information') }}
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            {{ __("Update your account's profile information and email address.") }}
         </template>
 
         <template #form>

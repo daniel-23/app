@@ -10,7 +10,8 @@
             </template>
 
             <template #content>
-                {{ __(content) }}
+                <p class="mb-2">{{ __(content) }}</p>
+                
 
                 <div class="form-group">
                     <jet-input type="password" :class="{'is-invalid': form.error}" :placeholder="__('Password')"
@@ -90,11 +91,13 @@
 
             confirmPassword() {
                 this.form.processing = true;
+                
+                
 
                 axios.post(route('password.confirm'), {
                     password: this.form.password,
                 }).then(() => {
-                    $('#modal-password-confirm').hide('slow');
+                    $('#modal-password-confirm').modal();
                     this.form.processing = false;
                     this.closeModal()
                     this.$nextTick(() => this.$emit('confirmed'));
@@ -106,7 +109,7 @@
             },
 
             closeModal() {
-                $('#modal-password-confirm').hide('slow');
+                $('#modal-password-confirm').modal('hide');
                 this.confirmingPassword = false
                 this.form.password = '';
                 this.form.error = '';

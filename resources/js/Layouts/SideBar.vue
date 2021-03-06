@@ -31,6 +31,10 @@
                         <i class="nav-icon fa fa-users"></i>
                         <p>{{ __('Users') }}</p>
                     </jet-nav-link>
+                    <jet-nav-link :href="route('posts.index')" :active="route().current('posts.index')">
+                        <i class="nav-icon far fa-clipboard"></i>
+                        <p>{{ __('Posts') }}</p>
+                    </jet-nav-link>
                     <li class="nav-item mb-4">
                         <a :href="route('logout')" class="nav-link" @click.prevent="logout">
                             <i class="nav-icon fas fa-power-off text-danger"></i>
