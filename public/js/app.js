@@ -4432,6 +4432,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -37608,12 +37610,24 @@ var render = function() {
           !_vm.recovery
             ? [
                 _vm._v(
-                  "\n            Please confirm access to your account by entering the authentication code provided by your authenticator application.\n        "
+                  "\n            " +
+                    _vm._s(
+                      _vm.__(
+                        "Please confirm access to your account by entering the authentication code provided by your authenticator application."
+                      )
+                    ) +
+                    "\n        "
                 )
               ]
             : [
                 _vm._v(
-                  "\n            Please confirm access to your account by entering one of your emergency recovery codes.\n        "
+                  "\n            " +
+                    _vm._s(
+                      _vm.__(
+                        "Please confirm access to your account by entering one of your emergency recovery codes."
+                      )
+                    ) +
+                    "\n        "
                 )
               ]
         ],
@@ -37709,12 +37723,16 @@ var render = function() {
                   !_vm.recovery
                     ? [
                         _vm._v(
-                          "\n                    Use a recovery code\n                "
+                          "\n                    " +
+                            _vm._s(_vm.__("Use a recovery code")) +
+                            "\n                "
                         )
                       ]
                     : [
                         _vm._v(
-                          "\n                    Use an authentication code\n                "
+                          "\n                    " +
+                            _vm._s(_vm.__("Use an authentication code")) +
+                            "\n                "
                         )
                       ]
                 ],
@@ -38824,6 +38842,17 @@ var render = function() {
                               _c(
                                 "td",
                                 [
+                                  _c(
+                                    "inertia-link",
+                                    {
+                                      staticClass: "btn btn-success btn-sm",
+                                      attrs: {
+                                        href: _vm.route("posts.show", post)
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "far fa-eye" })]
+                                  ),
+                                  _vm._v(" "),
                                   _c(
                                     "inertia-link",
                                     {
