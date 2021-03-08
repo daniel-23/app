@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"> <inertia-link :href="route('posts.index')">{{ __('Posts') }}</inertia-link></li>
-                        <li class="breadcrumb-item active">{{ __('Create') }}</li>
+                        <li class="breadcrumb-item active">{{ __('Edit') }}</li>
                     </ol>
                 </div><!-- /.col -->
             </template>
@@ -20,9 +20,9 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <jet-form-section @submitted="createPost">
+                            <jet-form-section @submitted="updatePost">
                                 <template #title>
-                                    {{ __('Create post') }}
+                                    {{ __('Edit post') }}
                                 </template>
 
                                 <template #form>
@@ -40,6 +40,7 @@
                                     <div class="mb-3">
                                         <textarea
                                             class="textarea"
+                                            v-model="form.content"
                                             :class="{'is-invalid': form.errors.content}"
                                             :placeholder="__('Content')"
                                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
@@ -101,6 +102,7 @@
             JetLabel,
             JetSecondaryButton,
         },
+        props: ['post'],
         mounted() {
             
             $('.textarea').summernote();
@@ -108,23 +110,24 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    title: '',
-                    description: '',
-                    content: '',
-                    is_public: false,
+                    _method: 'PUT',
+                    title: this.post.title,
+                    description: this.post.description,
+                    content: this.post.content,
+                    is_public: this.post.is_public,
                 })
             }
         },
 
         methods: {
-            createPost() {
+            updatePost() {
                 let content = $('.note-editable').html();
                 if (content == '<p><br></p>') {
                     content = '';
                 }
 
                 this.form.content  = content;
-                this.form.post(route('posts.store'), {
+                this.form.post(route('posts.update',this.post), {
                     preserveScroll: true
                 });
             },

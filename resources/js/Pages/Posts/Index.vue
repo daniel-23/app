@@ -57,7 +57,7 @@
                                                 <td>{{ post.title }}</td>
                                                 <td>{{ post.description }}</td>
                                                 <td>{{ fecha(post.created_at) }}</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
+                                                <td><inertia-link :href="route('posts.edit',post)" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></inertia-link></td>
                                             </tr>
                                             <tr v-if="posts.data.length === 0">
                                                 <td colspan="5">{{ __('No posts found.') }}</td>

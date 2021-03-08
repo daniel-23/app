@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
 
 
 class UserController extends Controller
@@ -37,9 +38,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        
+        $user = User::create($request->validated());
+        $request->session()->flash('status', 'User created successful!');
+        return redirect('/users');
     }
 
     /**

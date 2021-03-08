@@ -65,9 +65,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return Inertia::render('Posts/Edit',[
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -77,9 +79,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, Post $post)
     {
-        //
+        $post->update($request->validated());
+        $request->session()->flash('status', 'Post modified successfully!');
+        return redirect('/posts');
     }
 
     /**
