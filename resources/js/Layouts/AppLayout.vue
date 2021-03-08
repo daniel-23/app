@@ -18,7 +18,11 @@
                 </div><!-- /.container-fluid -->
             </div>
 
-
+            <div class="container">
+            	<div v-if="$page.props.session_status" class="alert alert-success">
+					{{ $page.props.session_status }}
+				</div>
+            </div>
 			<slot></slot>
 		</div>
 

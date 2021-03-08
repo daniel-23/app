@@ -54,6 +54,15 @@
                 <inertia-link  :href="route('password.request')">{{ __('Forgot your password?') }}</inertia-link>
             </p>
 
+            <p class="mb-0">
+                <inertia-link :href="route('register')" class="text-center">
+                    {{ __('Register') }}
+                </inertia-link>
+            </p>
+
+
+            
+
             
 
             
@@ -83,6 +92,7 @@
 
         props: {
             canResetPassword: Boolean,
+            canRegister: Boolean,
             status: String
         },
 

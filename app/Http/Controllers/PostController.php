@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -16,7 +17,11 @@ class PostController extends Controller
     public function index()
     {
         return Inertia::render('Posts/Index',[
-            'posts' => auth()->user()->posts()->orderBy('title')->paginate()
+            'filters' => \Request::all('search'),
+            'posts' => auth()->user()->posts()
+                ->orderBy('id', 'DESC')
+                ->filter(\Request::only('search'))
+                ->paginate(10)
         ]);
     }
 
@@ -27,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Posts/Create');
     }
 
     /**
@@ -36,9 +41,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
+        $post = auth()->user()->posts()->create($request->validated());
+        $request->session()->flash('status', 'Post created successful!');
+        return redirect('/posts');
     }
 
     /**
