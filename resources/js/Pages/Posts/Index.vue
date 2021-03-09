@@ -69,7 +69,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">
-                                <pagination :links="posts.links" />
+                                <pagination :links="posts.links" class="float-right" />
                             </div>
                         </div>
                         <!-- /.card -->

@@ -117,6 +117,14 @@
                         onFinish: () => this.form.reset('password'),
                     })
             }
+        },
+        mounted() {
+            
+            if (!$("body").hasClass('login-page')) {
+                $("body").addClass('login-page');
+                $("body").removeClass('sidebar-mini');
+                $("body").removeClass('layout-fixed');
+            }
         }
     }
 </script>
