@@ -43,7 +43,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('users', UserController::class);
+    
 
+    Route::post('/posts/uploadFile', [PostController::class, 'uploadFile'])->name('posts.uploadFile');
     Route::resource('posts', PostController::class);
 
     

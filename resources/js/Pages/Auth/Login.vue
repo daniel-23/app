@@ -9,7 +9,7 @@
         <div v-if="status" class="alert alert-success">
             {{ status }}
         </div>
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">{{ __('Log in') }}</p>
         <form @submit.prevent="submit">
 
             <div class="input-group mb-3">
@@ -36,7 +36,7 @@
                     <div class="icheck-primary">
                         <jet-checkbox name="remember" id="remember" v-model="form.remember" />
                         <label for="remember">
-                            Remember Me
+                            {{ __('Remember Me') }}
                         </label>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
             </div>
 
             <p class="mb-1 mt-3" v-if="canResetPassword">
-                <inertia-link  :href="route('password.request')">{{ __('Forgot your password?') }}</inertia-link>
+                <inertia-link  :href="route('password.request')">{{ __('Forgot Your Password?') }}</inertia-link>
             </p>
 
             <p class="mb-0">
@@ -59,13 +59,6 @@
                     {{ __('Register') }}
                 </inertia-link>
             </p>
-
-
-            
-
-            
-
-            
         </form>
     </jet-authentication-card>
 </template>
@@ -119,12 +112,11 @@
             }
         },
         mounted() {
-            
-            if (!$("body").hasClass('login-page')) {
-                $("body").addClass('login-page');
-                $("body").removeClass('sidebar-mini');
-                $("body").removeClass('layout-fixed');
-            }
+
+            $("body").addClass('login-page');
+            $("body").removeClass('sidebar-mini');
+            $("body").removeClass('layout-fixed');
+            $("body").removeClass('hold-transition');
         }
     }
 </script>

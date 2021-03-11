@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <textarea
+                                        id="textarea"
                                         class="textarea"
                                         v-model="form.content"
                                         :class="{'is-invalid': form.errors.content}"
@@ -102,7 +103,31 @@
         props: ['post'],
         mounted() {
             
-            $('.textarea').summernote();
+            $('#textarea').summernote({
+                height: 350,
+                callbacks: {
+                    onImageUpload: function(files) {
+                        
+                        var data = new FormData();
+                        data.append("file", files[0]);
+
+                        $.ajax({
+                            url: '/posts/uploadFile',
+                            type: 'POST',
+                            data: data,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                        })
+                        .done(function(resp) {
+                            if (resp.status == 'ok') {
+                                var image = $('<img>').attr('src','/storage/'+resp.path).addClass("img-fluid");
+                                $('#textarea').summernote("insertNode", image[0]);
+                            }
+                        });
+                    }
+                }
+            });
         },
         data() {
             return {

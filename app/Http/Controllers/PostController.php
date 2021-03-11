@@ -20,10 +20,10 @@ class PostController extends Controller
     {
         return Inertia::render('Posts/Index',[
             'filters' => \Request::all('search'),
-            'posts' => auth()->user()->posts()
-                ->orderBy('id', 'DESC')
-                ->filter(\Request::only('search'))
-                ->paginate(10)
+            'posts'   => auth()->user()->posts()
+                                ->orderBy('id', 'DESC')
+                                ->filter(\Request::only('search'))
+                                ->paginate(10)->withQueryString()
         ]);
     }
 
@@ -113,5 +113,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function uploadFile(Request $request)
+    {
+        if ($request->hasFile('file') && $request->file('file')->isValid()) {
+            $path = $request->file->store('posts', 'public');
+            return response()->json(['path' => $path, 'status' => 'ok'],200);
+        }
+        return response()->json(['status' => 'no'],200);
     }
 }

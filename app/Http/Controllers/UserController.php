@@ -18,7 +18,11 @@ class UserController extends Controller
     public function index()
     {
         return Inertia::render('Users/Index',[
-            'users' => User::orderBy('name')->paginate()
+            'filters' => \Request::all('search'),
+            'users'   => User::orderBy('name')
+                              ->filter(\Request::only('search'))
+                              ->paginate(10)
+                              ->withQueryString()
         ]);
     }
 
@@ -63,9 +67,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return Inertia::render('Users/Edit',[
+            'user' => $user,
+        ]);
     }
 
     /**
