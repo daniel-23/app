@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\{
     DashboardController,
 	PostController,
+    SocialController,
     UserController
 };
 
@@ -28,6 +29,13 @@ use App\Http\Controllers\{
         'phpVersion' => PHP_VERSION,
     ]);
 });*/
+#Rutas para login con facebook
+Route::get('/auth/facebook', [SocialController::class, 'facebookRedirect'])->name('login.fb');
+Route::get('/auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+
+#Rutas para login con github
+Route::get('/auth/github', [SocialController::class, 'githubRedirect'])->name('login.gh');
+Route::get('/auth/github/callback', [SocialController::class, 'loginWithGithub']);
 
 Route::get('/', function () {
     return redirect('/login');
@@ -47,6 +55,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::post('/posts/uploadFile', [PostController::class, 'uploadFile'])->name('posts.uploadFile');
     Route::resource('posts', PostController::class);
-
-    
 });

@@ -49,17 +49,27 @@
                 </div>
                 <!-- /.col -->
             </div>
-
-            <p class="mb-1 mt-3" v-if="canResetPassword">
-                <inertia-link  :href="route('password.request')">{{ __('Forgot Your Password?') }}</inertia-link>
-            </p>
-
-            <p class="mb-0">
-                <inertia-link :href="route('register')" class="text-center">
-                    {{ __('Register') }}
-                </inertia-link>
-            </p>
+            
         </form>
+        <div class="social-auth-links text-center mb-3">
+            <p>- OR -</p>
+            <a href="/auth/facebook" class="btn btn-block btn-primary">
+                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-danger">
+                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+            </a>
+        </div>
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1 mt-3" v-if="canResetPassword">
+            <inertia-link  :href="route('password.request')">{{ __('Forgot Your Password?') }}</inertia-link>
+        </p>
+        <p class="mb-0">
+            <inertia-link :href="route('register')" class="text-center">
+                {{ __('Register') }}
+            </inertia-link>
+        </p>
     </jet-authentication-card>
 </template>
 

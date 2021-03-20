@@ -3443,6 +3443,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -37704,45 +37714,68 @@ var render = function() {
               ],
               1
             )
-          ]),
-          _vm._v(" "),
-          _vm.canResetPassword
-            ? _c(
-                "p",
-                { staticClass: "mb-1 mt-3" },
-                [
-                  _c(
-                    "inertia-link",
-                    { attrs: { href: _vm.route("password.request") } },
-                    [_vm._v(_vm._s(_vm.__("Forgot Your Password?")))]
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "social-auth-links text-center mb-3" }, [
+        _c("p", [_vm._v("- OR -")]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-block btn-primary",
+            attrs: { href: "/auth/facebook" }
+          },
+          [
+            _c("i", { staticClass: "fab fa-facebook mr-2" }),
+            _vm._v(" Sign in using Facebook\n        ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "btn btn-block btn-danger", attrs: { href: "#" } },
+          [
+            _c("i", { staticClass: "fab fa-google-plus mr-2" }),
+            _vm._v(" Sign in using Google+\n        ")
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm.canResetPassword
+        ? _c(
             "p",
-            { staticClass: "mb-0" },
+            { staticClass: "mb-1 mt-3" },
             [
               _c(
                 "inertia-link",
-                {
-                  staticClass: "text-center",
-                  attrs: { href: _vm.route("register") }
-                },
-                [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.__("Register")) +
-                      "\n            "
-                  )
-                ]
+                { attrs: { href: _vm.route("password.request") } },
+                [_vm._v(_vm._s(_vm.__("Forgot Your Password?")))]
               )
             ],
             1
           )
-        ]
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "p",
+        { staticClass: "mb-0" },
+        [
+          _c(
+            "inertia-link",
+            {
+              staticClass: "text-center",
+              attrs: { href: _vm.route("register") }
+            },
+            [
+              _vm._v(
+                "\n            " + _vm._s(_vm.__("Register")) + "\n        "
+              )
+            ]
+          )
+        ],
+        1
       )
     ],
     1
@@ -38282,8 +38315,8 @@ var render = function() {
                       id: "code",
                       type: "text",
                       inputmode: "numeric",
-                      autofocus: "",
-                      autocomplete: "one-time-code"
+                      autocomplete: "one-time-code",
+                      autofocus: ""
                     },
                     model: {
                       value: _vm.form.code,
